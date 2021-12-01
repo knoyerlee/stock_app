@@ -1,3 +1,6 @@
+# TODO add instructions on how to properly use the app
+# TODO add try except blocks for potential user errors
+
 import tkinter
 from tkinter import ttk
 from src.stocks_api import get_stocks
