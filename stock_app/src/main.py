@@ -13,8 +13,10 @@ window_height = 600
 root.geometry(f'{window_width}x{window_height}')
 root.title('Stock Grabber')
 
+# Functions 
 def get_user_stocks():
     users_stocks = search_bar.get()
+    users_stocks = users_stocks.replace(" ", ", ")
     stock_values = get_stocks(users_stocks)
     try:
         stock_df = create_df(stock_values)
