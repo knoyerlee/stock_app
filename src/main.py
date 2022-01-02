@@ -1,20 +1,18 @@
-# TODO add instructions on how to properly use the app
-# TODO add try except blocks for potential user errors
-# TODO add some styling
-
+"""This gives stock info."""
 import tkinter
 from tkinter import ttk, messagebox
 from stocks_api import get_stocks
 from create_df import create_df
 
 root = tkinter.Tk()
-window_width = 900
-window_height = 600
-root.geometry(f"{window_width}x{window_height}")
+WINDOW_WIDTH = 900
+WINDOW_HEIGHT = 600
+root.geometry(f"{WINDOW_WIDTH}x{WINDOW_HEIGHT}")
 root.title("Stock Grabber")
 
 # Functions
 def get_user_stocks():
+    """This gets user stocks from an api and formats them into a dataframe."""
     users_stocks = search_bar.get()
     users_stocks = users_stocks.replace(" ", ", ")
     stock_values = get_stocks(users_stocks)
@@ -36,10 +34,10 @@ def get_user_stocks():
     stock_df_rows = stock_df.to_numpy().tolist()
     for row in stock_df_rows:
         tv1.insert("", "end", values=row)
-    return None
 
 
 def clear_data():
+    """This deletes instances"""
     tv1.delete(*tv1.get_children())
 
 
@@ -70,7 +68,9 @@ tree_scrollx.pack(side="bottom", fill="x")
 button1 = tkinter.Button(search_frame, text="Search", command=get_user_stocks)
 button1.place(rely=0.3, relx=0.5, relwidth=0.25, relheight=0.05, anchor="e")
 
-button2 = tkinter.Button(search_frame, text="Clear Data", command=lambda: clear_data())
+button2 = tkinter.Button(
+    search_frame, text="Clear Data", command=lambda: clear_data()
+)  # pylint: disable=unnecessary-lambda
 button2.place(
     rely=0.3,
     relx=0.5,
