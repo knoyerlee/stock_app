@@ -19,6 +19,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install pylint
+        pip install coverage
     - name: Analysing the code with pylint
       run: |
         cd src && pylint `ls -R|grep .py$|xargs` && cd ..
@@ -27,3 +28,7 @@ jobs:
         cd src && python -m unittest && cd ..
       env:
         STOCKAPPTOKEN: ${{secrets.STOCKAPPTOKEN}}
+    - name: Running test coverage report
+      run : |
+        cd src && python -m coverage run -m unittest && python -m coverage report && cd ..
+        cd src && python -m coverage run -m unittest && cd ..
