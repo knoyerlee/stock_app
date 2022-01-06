@@ -21,4 +21,8 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        cd src && pylint `ls -R|grep .py$|xargs`
+        cd src && pylint `ls -R|grep .py$|xargs` && cd ..
+    - name: Running unit tests
+      run: |
+        cd src && python -m unittest && cd ..
+      
