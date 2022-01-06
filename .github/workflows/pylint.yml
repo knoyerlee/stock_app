@@ -30,6 +30,6 @@ jobs:
         STOCKAPPTOKEN: ${{secrets.STOCKAPPTOKEN}}
     - name: Running test coverage report
       run : |
-        cd src && python -m coverage run -m unittest && python -m coverage report && cd ..
+        cd src && python -m coverage run --branch -m unittest && python -m coverage report && cd ..
       env:
         STOCKAPPTOKEN: ${{secrets.STOCKAPPTOKEN}}
