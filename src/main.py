@@ -69,7 +69,7 @@ button1 = tkinter.Button(search_frame, text="Search", command=get_user_stocks)
 button1.place(rely=0.3, relx=0.5, relwidth=0.25, relheight=0.05, anchor="e")
 
 button2 = tkinter.Button(
-    search_frame, text="Clear Data", command=lambda: clear_data()
+    search_frame, text="Clear Data", command=clear_data
 )  # pylint: disable=unnecessary-lambda
 button2.place(
     rely=0.3,

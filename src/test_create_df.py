@@ -1,9 +1,11 @@
+"""Unit tests for the creation of dataframe"""
 import unittest
 import pandas as pd
 from create_df import create_df
 
 
 class TestCreateDf(unittest.TestCase):
+    """Unit tests variable setup"""
     def setUp(self):
         self.stock_data = [
             {
@@ -42,9 +44,16 @@ class TestCreateDf(unittest.TestCase):
         )
 
     def test_create_df_positive(self):
+        """Actual unit test"""
         created_data = create_df(self.stock_data)
-        self.assertEquals(str(self.stock_data_formatted), str(created_data))
+        self.assertEqual(str(self.stock_data_formatted), str(created_data))
 
 
 if __name__ == "__main__":
     unittest.main()
+
+bad_ex = [
+    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    1111111111111111111111111111,
+    333333333333333333333333333,
+]
