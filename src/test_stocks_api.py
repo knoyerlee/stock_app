@@ -1,3 +1,4 @@
+"""Please let this work"""
 import unittest
 import unittest.mock
 from stocks_api import get_stocks
