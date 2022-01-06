@@ -25,4 +25,6 @@ jobs:
     - name: Running unit tests
       run: |
         cd src && python -m unittest && cd ..
+      env: 
+        STOCKAPPTOKEN: ${{STOCKAPPTOKEN}}
       
