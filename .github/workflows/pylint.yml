@@ -31,4 +31,3 @@ jobs:
     - name: Running test coverage report
       run : |
         cd src && python -m coverage run -m unittest && python -m coverage report && cd ..
-        cd src && python -m coverage run -m unittest && cd ..
